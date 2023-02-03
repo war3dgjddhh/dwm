@@ -37,13 +37,13 @@ call_menu() {
 
 click() {
     case "$1" in
-        L) notify; feh --randomize --bg-fill ~/Pictures/wallpaper/*.png ;;
-        R) call_menu ;;
+       #L) notify; feh --randomize --bg-fill ~/Pictures/wallpaper/*.png ;;
+#        R) call_menu ;;
     esac
 }
 
 case "$1" in
-    click) click $2 ;;
-    notify) notify ;;
-    *) update ;;
+#    click) click $2 ;;
+#    notify) notify ;;
+#    *) update ;;
 esac

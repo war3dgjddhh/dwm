@@ -9,7 +9,7 @@ signal=$(echo "^s$this^" | sed 's/_//')
 
 update() {
     wifi_icon="褐"
-    wifi_text=$(nmcli | grep 已连接 | awk '{print $3}')
+    wifi_text=$(nmcli | grep -w 'wlan0' | grep -w 'connected' | awk '{print $4}')
     [ "$wifi_text" = "" ] && wifi_text="未连接"
 
     icon=" $wifi_icon "
@@ -21,8 +21,8 @@ update() {
 
 notify() {
     update
-    connect=$(nmcli | grep 已连接 | awk '{print $3}')
-    device=$(nmcli | grep 已连接 | awk '{print $1}'  | sed 's/：已连接//')
+    connect=$(nmcli | grep -w 'wlan0' | grep -w 'connected' | awk '{print $4}')
+    device=$(nmcli | grep -w 'wlan0' | grep -w 'connected' | awk '{print $1}'  | sed 's/：已连接//')
     text="设备: $device\n连接: $connect"
     [ "$connect" = "" ] && text="未连接到网络"
     notify-send -r 9527 "$wifi_icon Wifi" "\n$wifi_text"
