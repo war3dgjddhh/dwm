@@ -164,7 +164,7 @@ static Key keys[] = {
     { MODKEY,              XK_k,      spawn, SHCMD("~/scripts/blurlock.sh") },                                  /* super k          | 锁定屏幕               */
     { MODKEY|ShiftMask,    XK_Up,     spawn, SHCMD("~/scripts/set_vol.sh up") },                                /* super shift up   | 音量加                 */
     { MODKEY|ShiftMask,    XK_Down,   spawn, SHCMD("~/scripts/set_vol.sh down") },                              /* super shift down | 音量减                 */
-    { MODKEY|ShiftMask,    XK_a,      spawn, SHCMD("flameshot gui -c -p ~/Pictures/screenshots") },             /* super shift a    | 截图                   */
+    { MODKEY|ShiftMask,    XK_a,      spawn, SHCMD("flameshot gui -c --pin -p ~/Pictures/screenshots") },             /* super shift a    | 截图                   */
     { MODKEY|ShiftMask,    XK_k,      spawn, SHCMD("~/scripts/screenkey.sh") },                                 /* super shift k    | 打开键盘输入显示       */
     { MODKEY|ShiftMask,    XK_q,      spawn, SHCMD("kill -9 $(xprop | grep _NET_WM_PID | awk '{print $3}')") }, /* super shift q    | 选中某个窗口并强制kill */
     { ShiftMask|ControlMask, XK_c,    spawn, SHCMD("xclip -o | xclip -selection c") },                          /* super shift c    | 进阶复制               */
@@ -179,7 +179,7 @@ static Key keys[] = {
     TAGKEYS(XK_5, 4,  0)
     TAGKEYS(XK_9, 5,  "obs")
     TAGKEYS(XK_c, 6,  "google-chrome-stable")
-    TAGKEYS(XK_m, 7,  "~/scripts/music_player.sh")
+    TAGKEYS(XK_m, 7,  "/opt/YesPlayMusic/yesplaymusic")
     TAGKEYS(XK_0, 8,  "linuxqq")
     TAGKEYS(XK_w, 9,  "/opt/apps/com.qq.weixin.deepin/files/run.sh")
     TAGKEYS(XK_l, 10, "/opt/apps/com.qq.weixin.work.deepin/files/run.sh")
