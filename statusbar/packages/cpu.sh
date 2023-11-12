@@ -9,7 +9,7 @@ text_color="^c#3E206F^^b#6E51760x99^"
 signal=$(echo "^s$this^" | sed 's/_//')
 
 update() {
-    cpu_icon="閭"
+    cpu_icon="󰻠"
     cpu_text=$(top -n 1 -b | sed -n '3p' | awk '{printf "%02d%", 100 - $8}')
     temp_text=$(sensors | grep Tctl | awk '{printf "%d°C", $2}')  
 
