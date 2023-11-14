@@ -15,8 +15,8 @@ update() {
 
     text=" ${icons[@]} "
 
-    sed -i '/^export '$this'=.*$/d' $DWM/statusbar/temp
-    printf "export %s='%s%s%s'\n" $this "$signal" "$color" "$text" >> $DWM/statusbar/temp
+    sed -i '/^export '$this'=.*$/d' ~/dwm/statusbar/temp
+    printf "export %s='%s%s%s'\n" $this "$signal" "$color" "$text" >> ~/dwm/statusbar/temp
 }
 
 notify() {

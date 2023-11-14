@@ -66,20 +66,20 @@ nix run github:yaocccc/dwm
   
   若需要使用 请逐个去查看 修改packages中的脚本文件
   
-  请在dwm启动时 调用 $DWM/statusbar/statusbar.sh cron
+  请在dwm启动时 调用 ~/dwm/statusbar/statusbar.sh cron
 
   注意 ~/.profile中需要有 该环境变量为强依赖关系
   export DWM=~/workspace/dwm
 
-  点击事件发生时 会调用 $DWM/statusbar/statusbar.sh 并传入信号值 请自行处理
-  例如 $DWM/statusbar/statusbar.sh date L  # 其中date为信号值 L为按键 (L左键 M中键 R右键)
+  点击事件发生时 会调用 ~/dwm/statusbar/statusbar.sh 并传入信号值 请自行处理
+  例如 ~/dwm/statusbar/statusbar.sh date L  # 其中date为信号值 L为按键 (L左键 M中键 R右键)
 
-  可执行 $DWM/statusbar/statusbar.sh check 检查是否有模块存在问题
+  可执行 ~/dwm/statusbar/statusbar.sh check 检查是否有模块存在问题
 ```
 
 ## 随DWM启动的自启动命令
 
-dwm启动时会去调用 $DWM/autostart.sh 脚本
+dwm启动时会去调用 ~/dwm/autostart.sh 脚本
 
 可参考 [autostart脚本](https://github.com/yaocccc/dwm/blob/master/autostart.sh)
 
