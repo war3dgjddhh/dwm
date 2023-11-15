@@ -14,7 +14,7 @@
 # 静音 -> Mute: no                                                                                 
 # 音量 -> Volume: front-left: 13183 /  20% / -41.79 dB,   front-right: 13183 /  20% / -41.79 dB
 
-source ~/.profile
+ 
 
 this=_vol
 icon_color="^c#442266^^b#7879560x88^"

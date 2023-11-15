@@ -1,7 +1,7 @@
 #! /bin/bash
 # ICONS 部分特殊的标记图标 这里是我自己用的，你用不上的话去掉就行
 
-source ~/.profile
+ 
 
 this=_icons
 color="^c#2D1B46^^b#5555660x66^"
