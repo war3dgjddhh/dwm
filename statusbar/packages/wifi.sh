@@ -6,26 +6,34 @@ this=_wifi
 icon_color="^c#000080^^b#3870560x88^"
 text_color="^c#000080^^b#3870560x99^"
 signal=$(echo "^s$this^" | sed 's/_//')
+# check
+[ ! "$(command -v nmcli)" ] && echo command not found: nmcli && exit
+
+# 中英文适配
+wifi_grep_keyword="已连接 到"
+wifi_disconnected="未连接"
+wifi_disconnected_notify="未连接到网络"
+if [ "$LANG" != "zh_CN.UTF-8" ]; then
+    wifi_grep_keyword="connected to"
+    wifi_disconnected="disconnected"
+    wifi_disconnected_notify="disconnected"
+fi
 
 update() {
 	
     wifi_icon=""
-    wifi_text=$(nmcli | grep -w 'wlan0' | grep -w 'connected' | awk '{print $4}')
-    [ "$wifi_text" = "" ] && wifi_text="未连接"
+    wifi_text=$(nmcli | grep "$wifi_grep_keyword" | awk -F "$wifi_grep_keyword" '{print $2}')
+    [ "$wifi_text" = "" ] && wifi_text=$wifi_disconnected
 
     icon=" $wifi_icon "
-    text=" $wifi_text "
+    text="$wifi_text "
 
     sed -i '/^export '$this'=.*$/d' ~/dwm/statusbar/temp
     printf "export %s='%s%s%s%s%s'\n" $this "$signal" "$icon_color" "$icon" "$text_color" "$text" >> ~/dwm/statusbar/temp
 }
 
 notify() {
-    update
-    connect=$(nmcli | grep -w 'wlan0' | grep -w 'connected' | awk '{print $4}')
-    device=$(nmcli | grep -w 'wlan0' | grep -w 'connected' | awk '{print $1}'  | sed 's/：已连接//')
-    text="设备: $device\n连接: $connect"
-    [ "$connect" = "" ] && text="未连接到网络"
+	update
     notify-send -r 9527 "$wifi_icon Wifi" "\n$wifi_text"
 }
 
