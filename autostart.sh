@@ -26,7 +26,7 @@ cron() {
     [ $1 ] && sleep $1
     let i=10
     while true; do
-       [ $((i % 300)) -eq 0 ] && feh --randomize --bg-fill ~/wallpaper/*.png # 每300秒更新壁纸
+       [ $((i % 30000)) -eq 0 ] && feh --randomize --bg-fill ~/wallpaper/*.png # 每300秒更新壁纸
         sleep 10; let i+=10
     done
 }
